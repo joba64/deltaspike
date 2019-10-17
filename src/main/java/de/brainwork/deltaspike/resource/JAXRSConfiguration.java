@@ -1,4 +1,4 @@
-package de.brainwork.deltaspike;
+package de.brainwork.deltaspike.resource;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
