@@ -2,7 +2,6 @@ package de.brainwork.deltaspike.resource;
 
 
 import de.brainwork.deltaspike.entity.User;
-import de.brainwork.deltaspike.repository.PersonRepository;
 import de.brainwork.deltaspike.service.PersonService;
 import org.apache.deltaspike.core.api.config.ConfigProperty;
 import org.apache.deltaspike.core.api.config.ConfigResolver;
@@ -11,7 +10,6 @@ import org.apache.deltaspike.core.api.message.MessageContext;
 import org.apache.deltaspike.core.api.projectstage.ProjectStage;
 
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import java.io.StringWriter;
@@ -26,13 +24,6 @@ public class PersonResource {
     // wird über ein Profile gesteuert
     @Inject
     ProjectStage projectStage;
-
-    @Inject
-    PersonRepository repository;
-
-    @Inject
-    EntityManager em;
-
 
     // steht in /resources/META-INF/apache-deltaspike.properties
     @Inject
@@ -73,6 +64,8 @@ public class PersonResource {
 //        System.out.println("<--------------- users: " + users);
 
 //        users.get(0).setNachname("Maier");
+
+        User user1 = personService.getUser();
 
         return writer.toString();
     }
